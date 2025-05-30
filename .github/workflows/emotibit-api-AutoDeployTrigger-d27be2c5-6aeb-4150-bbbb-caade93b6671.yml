@@ -30,14 +30,19 @@ jobs:
           client-id: ${{ secrets.EMOTIBITAPI_AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.EMOTIBITAPI_AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.EMOTIBITAPI_AZURE_SUBSCRIPTION_ID }}
-          - name: Build and push container image to registry
-          uses: azure/container-apps-deploy-action@v2
-          with:
-            appSourcePath: ${{ github.workspace }}
-            dockerfilePath: Dockerfile
-            registryUrl: emotibitapiregistry.azurecr.io
-            registryUsername: ${{ secrets.EMOTIBITAPI_REGISTRY_USERNAME }}
-            registryPassword: ${{ secrets.EMOTIBITAPI_REGISTRY_PASSWORD }}
-            containerAppName: emotibit-api
-            resourceGroup: Stress_Detection_Project
-            imageToBuild: emotibitapiregistry.azurecr.io/emotibit-api:${{ github.sha }}
+
+      - name: Build and push container image to registry
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          appSourcePath: ${{ github.workspace }}
+          _dockerfilePathKey_: "/Dockerfile"
+          registryUrl: emotibitapiregistry.azurecr.io
+          registryUsername: ${{ secrets.EMOTIBITAPI_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.EMOTIBITAPI_REGISTRY_PASSWORD }}
+          containerAppName: emotibit-api
+          resourceGroup: Stress_Detection_Project
+          imageToBuild: emotibitapiregistry.azurecr.io/emotibit-api:${{ github.sha }}
+          _buildArgumentsKey_: |
+            _buildArgumentsValues_
+
+
