@@ -54,8 +54,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: ${{ env.ACR_NAME }}.azurecr.io
-        username: ${{ secrets.AZURE_CREDENTIALS.clientId }} # ใช้ clientId จาก Service Principal
-        password: ${{ secrets.AZURE_CREDENTIALS.clientSecret }} # ใช้ clientSecret จาก Service Principal
+        # username: ${{ secrets.AZURE_CREDENTIALS.clientId }} # ใช้ clientId จาก Service Principal
+        # password: ${{ secrets.AZURE_CREDENTIALS.clientSecret }} # ใช้ clientSecret จาก Service Principal
 
     - name: Build and push Docker image to ACR
       run: |
