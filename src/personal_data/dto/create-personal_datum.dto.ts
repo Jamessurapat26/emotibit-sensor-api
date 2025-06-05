@@ -38,25 +38,25 @@ export class CreatePersonalDatumDto {
     CD: string;
 
     @IsString()
-    @IsIn(['male', 'female'], {
-        message: 'Gender must be one of the following: male, female'
+    @IsIn(['Male', 'Female'], {
+        message: 'Gender must be one of the following: Male, Female'
     })
     @IsNotEmpty()
     @ApiProperty({ example: 'male' })
     gender: string;
 
-    @IsIn(['type1', 'type2', 'type3', 'type4', 'type5'], {
-        message: 'Skin type must be one of the following: type1, type2, type3, type4, or type5'
+    @IsIn(['Type1', 'Type2', 'Type3', 'Type4', 'Type5'], {
+        message: 'Skin type must be one of the following: Type1, Type2, Type3, Type4, or Type5'
     })
     @IsNotEmpty()
-    @ApiProperty({ example: 'type1' })
+    @ApiProperty({ example: 'Type1' })
     skinType: string;
 
-    @IsIn(['6-8 hours', 'Less than 8 hours', 'More than 8 hours'], {
-        message: 'Time to sleep must be one of the following: "6-8 hours", "Less than 8 hours", or "More than 8 hours"'
+    @IsIn(['6 - 8 hours', 'Less than 8 hours', 'More than 8 hours'], {
+        message: 'Time to sleep must be one of the following: "6 - 8 hours", "Less than 8 hours", or "More than 8 hours"'
     })
     @IsNotEmpty()
-    @ApiProperty({ example: '6-8 hours' })
+    @ApiProperty({ example: '6 - 8 hours' })
     timeToSleep: string;
 
     // @Type(() => Date)
