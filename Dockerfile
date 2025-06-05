@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-COPY .env .env
+# COPY .env .env
 
 RUN bun install --frozen-lockfile
 
