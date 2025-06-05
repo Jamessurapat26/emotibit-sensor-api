@@ -1,23 +1,20 @@
-# Use the official Node.js image as the base image
-FROM node:20
+FROM oven/bun:1.1.18-alpine AS production
 
-# Set the working directory inside the container
-WORKDIR /usr/src/app
+# Set working directory for the application
+WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install the application dependencies
-RUN npm install
-
-# Copy the rest of the application files
 COPY . .
 
-# Build the NestJS application
-RUN npm run build
+COPY .env .env
 
-# Expose the application port
+RUN bun install --frozen-lockfile
+
+# Expose the port that your NestJS application listens on
+# Default for NestJS is 3000
 EXPOSE 3000
 
 # Command to run the application
-CMD ["node", "dist/main"]
+# Use 'bun run start' if you have a 'start' script in package.json
+# or 'bun dist/main.js' directly if you prefer
+CMD ["bun", "run", "start"]
+# CMD ["bun", "dist/main.js"] # Alternative if 'start' script just runs this

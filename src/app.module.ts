@@ -11,7 +11,13 @@ dotenv.config();
 @Module({
   imports: [
     MongooseModule.forRoot(process.env.MONGO_URI || 'mongodb://localhost:27017/', {
-      dbName: 'emotibit_data'
+      dbName: 'emotibit_data',
+      maxPoolSize: 10, // Maximum number of connections
+      minPoolSize: 5,  // Minimum number of connections
+      maxIdleTimeMS: 30000, // Close connections after 30 seconds of inactivity
+      serverSelectionTimeoutMS: 5000, // How long to try to connect
+      socketTimeoutMS: 45000, // How long a send or receive on a socket can take
+      bufferCommands: false, // Disable mongoose buffering
     }),
     SensorsModule,
     PersonalDataModule
