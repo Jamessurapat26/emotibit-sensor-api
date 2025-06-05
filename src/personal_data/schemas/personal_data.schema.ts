@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import * as moment from 'moment-timezone';
 
 
 export type PersonalDataDocument = PersonalData & Document;
@@ -34,19 +33,19 @@ export class PersonalData {
 
     @Prop({
         required: true,
-        enum: ['male', 'female']
+        enum: ['Male', 'Female']
     })
     gender: string;
 
     @Prop({
         required: true,
-        enum: ['type1', 'type2', 'type3', 'type4', 'type5']
+        enum: ['Type 2', 'Type 3', 'Type 4', 'Type 5']
     })
     skinType: string;
 
     @Prop({
         required: true,
-        enum: ['6-8 hours', 'Less than 8 hours', 'More than 8 hours']
+        enum: ['6 - 8 hours', 'Less than 8 hours', 'More than 8 hours']
     })
     timeToSleep: string;
 }

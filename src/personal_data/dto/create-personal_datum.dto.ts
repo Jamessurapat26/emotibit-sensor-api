@@ -1,5 +1,4 @@
 import { IsIn, IsNotEmpty, IsNumber, IsString, IsDate } from 'class-validator';
-import { Type } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreatePersonalDatumDto {
@@ -42,14 +41,14 @@ export class CreatePersonalDatumDto {
         message: 'Gender must be one of the following: Male, Female'
     })
     @IsNotEmpty()
-    @ApiProperty({ example: 'male' })
+    @ApiProperty({ example: 'Male' })
     gender: string;
 
-    @IsIn(['Type1', 'Type2', 'Type3', 'Type4', 'Type5'], {
-        message: 'Skin type must be one of the following: Type1, Type2, Type3, Type4, or Type5'
+    @IsIn(['Type 2', 'Type 3', 'Type 4', 'Type 5'], {
+        message: 'Skin type must be one of the following: Type 2, Type 3, Type 4, or Type 5'
     })
     @IsNotEmpty()
-    @ApiProperty({ example: 'Type1' })
+    @ApiProperty({ example: 'Type 2' })
     skinType: string;
 
     @IsIn(['6 - 8 hours', 'Less than 8 hours', 'More than 8 hours'], {
