@@ -58,6 +58,14 @@ export class CreatePersonalDatumDto {
     @ApiProperty({ example: '6 - 8 hours' })
     timeToSleep: string;
 
+    @IsNotEmpty()
+    @ApiProperty({ example: '1' })
+    ward: number;
+
+    @IsNotEmpty()
+    @ApiProperty({ example: '1' })
+    bed: number;
+
     // @Type(() => Date)
     // @IsDate({ message: 'timestamp must be a valid date' })
     // @ApiProperty({ default: new Date() })

@@ -48,6 +48,12 @@ export class PersonalData {
         enum: ['6 - 8 hours', 'Less than 8 hours', 'More than 8 hours']
     })
     timeToSleep: string;
+
+    @Prop({ required: true })
+    ward: number;
+
+    @Prop({ required: true })
+    bed: number;
 }
 
 export const PersonalDataSchema = SchemaFactory.createForClass(PersonalData);
