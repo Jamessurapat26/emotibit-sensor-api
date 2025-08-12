@@ -58,9 +58,10 @@ export class CreatePersonalDatumDto {
     @ApiProperty({ example: '6 - 8 hours' })
     timeToSleep: string;
 
+    @IsString()
     @IsNotEmpty()
-    @ApiProperty({ example: '1' })
-    ward: number;
+    @ApiProperty({ example: 'A' })
+    ward: string;
 
     @IsNotEmpty()
     @ApiProperty({ example: '1' })
